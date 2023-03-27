@@ -28,11 +28,12 @@ export class ClienteService {
     );
   }
 
-  create(cliente: Cliente): Observable<any>{
+  create(cliente: Cliente): Observable<Cliente>{
     if (cliente.nombre?.length == 0)
       cliente.nombre = null;
 
-    return this.http.post<any>(this.urlEndPoint, cliente, {headers: this.httpHeaders}).pipe(
+    return this.http.post(this.urlEndPoint, cliente, {headers: this.httpHeaders}).pipe(
+      map((response: any) => response.cliente as Cliente),
       catchError(e => {
         console.log(e.error.mensaje);
         swal.fire(e.error.mensaje, e.error.error, 'error');
