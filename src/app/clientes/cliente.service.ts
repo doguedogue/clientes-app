@@ -29,9 +29,6 @@ export class ClienteService {
   }
 
   create(cliente: Cliente): Observable<Cliente>{
-    if (cliente.nombre?.length == 0)
-      cliente.nombre = null;
-
     return this.http.post(this.urlEndPoint, cliente, {headers: this.httpHeaders}).pipe(
       map((response: any) => response.cliente as Cliente),
       catchError(e => {
@@ -54,9 +51,6 @@ export class ClienteService {
   }
 
   update(cliente: Cliente): Observable<any>{
-    if (cliente.nombre?.length == 0)
-      cliente.nombre = null;
-
     return this.http.put<any>(`${this.urlEndPoint}/${cliente.id}`, cliente, {headers: this.httpHeaders}).pipe(
       catchError(e => {
         console.log(e.error.mensaje);
