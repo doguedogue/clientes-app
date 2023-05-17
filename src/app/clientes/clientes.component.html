@@ -26,11 +26,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let cliente of listaClientes">
-          <td> {{ cliente.id}}</td>
-          <td> {{ cliente.nombre}}</td>
-          <td> {{ cliente.apellido}}</td>
-          <td> {{ cliente.email}}</td>
-          <td> {{ cliente.createdAt}}</td>
+          <td> {{ cliente.id }}</td>
+          <td> {{ cliente.nombre }}</td>
+          <td> {{ cliente.apellido | uppercase}}</td>
+          <td> {{ cliente.email }}</td>
+          <td> {{ cliente.createdAt | date:"EEEE dd, MMMM yyyy"}}</td>
           <td>
 
               <button

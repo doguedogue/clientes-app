@@ -31,7 +31,7 @@ export class ClienteService {
           cliente.nombre = cliente.nombre.toUpperCase()
           // cliente.createdAt = formatDate(cliente.createdAt, 'dd-MM-yyyy', 'en-US')
           let datePipe = new DatePipe('es')
-          cliente.createdAt = datePipe.transform(cliente.createdAt, 'EEEE dd, MMMM yyyy')
+          //cliente.createdAt = datePipe.transform(cliente.createdAt, 'EEEE dd, MMMM yyyy')
           return cliente
         })
       })
