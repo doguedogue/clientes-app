@@ -6,8 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map, catchError } from 'rxjs/operators'
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { DatePipe, formatDate, registerLocaleData } from '@angular/common';
-import localeES from '@angular/common/locales/es'
+import { DatePipe, formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +30,6 @@ export class ClienteService {
         return clientes.map(cliente => {
           cliente.nombre = cliente.nombre.toUpperCase()
           // cliente.createdAt = formatDate(cliente.createdAt, 'dd-MM-yyyy', 'en-US')
-          registerLocaleData(localeES, 'es')
           let datePipe = new DatePipe('es')
           cliente.createdAt = datePipe.transform(cliente.createdAt, 'EEEE dd, MMMM yyyy')
           return cliente
